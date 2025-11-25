@@ -211,6 +211,41 @@ body::after {
       0 0 20px #39ff14;
   }
 
+  .neon-red {
+    color: #ff2a2a;
+    text-shadow: 
+      0 0 5px #ff2a2a,
+      0 0 10px #ff2a2a,
+      0 0 15px #ff2a2a,
+      0 0 20px #ff2a2a;
+  }
+
+  .neon-cyan {
+    color: #00ffff;
+    text-shadow: 
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      0 0 15px #00ffff,
+      0 0 20px #00ffff;
+  }
+
+  /* Text color utilities for dynamic interpolation */
+  .text-blue { color: #00d4ff; }
+  .text-purple { color: #8a2be2; }
+  .text-pink { color: #ff006e; }
+  .text-cyan { color: #00ffff; }
+  .text-green { color: #39ff14; }
+  .text-red { color: #ff2a2a; }
+  
+  .text-neon-blue { color: #00d4ff; }
+  .text-neon-purple { color: #8a2be2; }
+  .text-neon-pink { color: #ff006e; }
+  .text-neon-cyan { color: #00ffff; }
+  .text-neon-green { color: #39ff14; }
+  .text-neon-red { color: #ff2a2a; }
+
+  .border-neon-green { border-color: #39ff14; }
+
   /* Electric Border */
   .electric-border {
     position: relative;
@@ -276,10 +311,23 @@ body::after {
     text-transform: uppercase;
   }
 
+  .font-cyber {
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
   .tech-text {
     font-family: 'Rajdhani', sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
+  }
+
+  .font-tech {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
   }
 
   /* 3D Transform Effects */

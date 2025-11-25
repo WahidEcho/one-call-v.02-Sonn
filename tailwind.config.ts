@@ -6,6 +6,14 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    // Neon colors for dynamic classes
+    'neon-blue', 'neon-purple', 'neon-pink', 'neon-cyan', 'neon-green', 'neon-red',
+    'text-blue', 'text-purple', 'text-pink', 'text-cyan', 'text-green', 'text-red',
+    'text-neon-blue', 'text-neon-purple', 'text-neon-pink', 'text-neon-cyan', 'text-neon-green', 'text-neon-red',
+    // Border colors
+    'border-neon-blue', 'border-neon-purple', 'border-neon-pink', 'border-neon-cyan', 'border-neon-green', 'border-neon-red',
+  ],
   theme: {
     extend: {
       colors: {

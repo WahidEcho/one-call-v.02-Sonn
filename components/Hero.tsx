@@ -4,9 +4,9 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
 
 const neuralStats = [
-  { label: 'NEURAL CALLS', value: 2847, suffix: '', color: 'neon-blue' },
-  { label: 'QUANTUM LEADS', value: 186, suffix: '', color: 'neon-purple' },
-  { label: 'SYNAPTIC LINKS', value: 124, suffix: '', color: 'neon-pink' },
+  { label: 'NEURAL CALLS', value: 2847, suffix: '', color: 'blue' },
+  { label: 'QUANTUM LEADS', value: 186, suffix: '', color: 'purple' },
+  { label: 'SYNAPTIC LINKS', value: 124, suffix: '', color: 'pink' },
 ]
 
 const dataStreamItems = [
@@ -45,7 +45,7 @@ function QuantumCounter({ value, color, duration = 2500 }: { value: number; colo
   }, [shouldStart, value, duration])
 
   return (
-    <div ref={ref} className={`neon-${color} font-cyber text-2xl lg:text-3xl font-bold`}>
+    <div ref={ref} className={`${color === 'blue' ? 'neon-blue' : color === 'purple' ? 'neon-purple' : 'neon-pink'} cyber-heading text-2xl lg:text-3xl font-bold`}>
       {count.toLocaleString()}
     </div>
   )
