@@ -85,12 +85,12 @@ function TimelineItem({ item, index, isInView }: { item: typeof timeline[0]; ind
       </motion.div>
 
       {/* Content */}
-      <div className="flex-1 glass rounded-2xl p-6 group-hover:glass-strong transition-all duration-300">
+      <div className="flex-1 professional-glass rounded-2xl p-6 group-hover:professional-glass-strong transition-all duration-300">
         <div className="flex items-center space-x-4 mb-3">
           <span className="text-2xl font-bold text-primary-200">{item.year}</span>
-          <h3 className="text-xl font-bold text-white">{item.title}</h3>
+          <h3 className="text-xl font-bold text-secondary-900">{item.title}</h3>
         </div>
-        <p className="text-white/80 leading-relaxed">{item.description}</p>
+        <p className="text-secondary-700 leading-relaxed">{item.description}</p>
       </div>
     </motion.div>
   )
@@ -99,7 +99,7 @@ function TimelineItem({ item, index, isInView }: { item: typeof timeline[0]; ind
 function FounderCard({ founder, index, isInView }: { founder: typeof founders[0]; index: number; isInView: boolean }) {
   return (
     <motion.div
-      className="glass-strong rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:scale-105 transition-transform duration-300"
+      className="professional-glass-strong rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:scale-105 transition-transform duration-300"
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.5 + index * 0.3 }}
@@ -116,26 +116,26 @@ function FounderCard({ founder, index, isInView }: { founder: typeof founders[0]
           </div>
           
           <div className="flex-1">
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
+            <h3 className="text-2xl lg:text-3xl font-bold text-secondary-900 mb-2">
               {founder.name}
             </h3>
             <p className="text-primary-200 font-semibold mb-1">
               {founder.role}
             </p>
-            <p className="text-white/70 text-sm">
+            <p className="text-secondary-600 text-sm">
               {founder.location}
             </p>
           </div>
         </div>
 
         {/* Bio */}
-        <p className="text-white/90 leading-relaxed mb-8 text-lg">
+        <p className="text-secondary-800 leading-relaxed mb-8 text-lg">
           {founder.bio}
         </p>
 
         {/* Specialties */}
         <div className="mb-6">
-          <h4 className="text-white font-semibold mb-4">Specialties:</h4>
+          <h4 className="text-secondary-900 font-semibold mb-4">Specialties:</h4>
           <div className="grid grid-cols-2 gap-3">
             {founder.specialties.map((specialty, specIndex) => (
               <motion.div
@@ -146,7 +146,7 @@ function FounderCard({ founder, index, isInView }: { founder: typeof founders[0]
                 transition={{ duration: 0.4, delay: 1 + index * 0.3 + specIndex * 0.1 }}
               >
                 <div className="w-2 h-2 bg-primary-200 rounded-full"></div>
-                <span className="text-white/80 text-sm">{specialty}</span>
+                <span className="text-secondary-700 text-sm">{specialty}</span>
               </motion.div>
             ))}
           </div>
@@ -154,7 +154,7 @@ function FounderCard({ founder, index, isInView }: { founder: typeof founders[0]
 
         {/* Achievements */}
         <div>
-          <h4 className="text-white font-semibold mb-4">Key Achievements:</h4>
+          <h4 className="text-secondary-900 font-semibold mb-4">Key Achievements:</h4>
           <div className="space-y-3">
             {founder.achievements.map((achievement, achIndex) => (
               <motion.div
@@ -165,7 +165,7 @@ function FounderCard({ founder, index, isInView }: { founder: typeof founders[0]
                 transition={{ duration: 0.4, delay: 1.2 + index * 0.3 + achIndex * 0.1 }}
               >
                 <div className="w-1.5 h-1.5 bg-gradient-to-r from-primary-200 to-primary-300 rounded-full"></div>
-                <span className="text-white/80 text-sm">{achievement}</span>
+                <span className="text-secondary-700 text-sm">{achievement}</span>
               </motion.div>
             ))}
           </div>
@@ -209,13 +209,13 @@ export default function Founders() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-6">
             Meet the{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-100 to-primary-200">
               Founders
             </span>
           </h2>
-          <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-secondary-600 max-w-4xl mx-auto leading-relaxed">
             Built by active wholesalers who understand what it takes to close deals and scale operations.
           </p>
         </motion.div>
@@ -223,7 +223,7 @@ export default function Founders() {
         {/* Timeline Section */}
         <div className="mb-20 lg:mb-24">
           <motion.h3
-            className="text-2xl lg:text-3xl font-bold text-white text-center mb-12"
+            className="text-2xl lg:text-3xl font-bold text-secondary-900 text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -275,8 +275,8 @@ export default function Founders() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 2 }}
         >
-          <div className="glass-strong rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
-            <p className="text-white/90 text-lg lg:text-xl leading-relaxed mb-8">
+          <div className="professional-glass-strong rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
+            <p className="text-secondary-800 text-lg lg:text-xl leading-relaxed mb-8">
               Nick brings deal and community expertise. Loaay brings systems and operations excellence. 
               Together, they built One Call Away to give investors a VA company that finally understands 
               wholesaling at an elite level.
@@ -294,7 +294,7 @@ export default function Founders() {
                 Meet with the Founders
               </motion.button>
               <motion.button
-                className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-200"
+                className="border-2 border-secondary-300 text-secondary-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-secondary-50 transition-all duration-200"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

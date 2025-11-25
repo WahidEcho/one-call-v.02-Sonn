@@ -138,13 +138,13 @@ export default function CallFlow() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-6">
             From Cold Call to{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-100 to-primary-200">
               Closed Deal
             </span>
           </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-secondary-700 max-w-3xl mx-auto leading-relaxed">
             Our systematic approach turns prospects into profits. Here&apos;s how we transform your pipeline.
           </p>
         </motion.div>
@@ -192,14 +192,14 @@ export default function CallFlow() {
                   <div className="flex-1 pb-8">
                     <h3
                       className={`text-xl lg:text-2xl font-bold mb-2 transition-colors duration-300 ${
-                        activeStep === index ? 'text-white' : 'text-white/70'
+                        activeStep === index ? 'text-secondary-900' : 'text-secondary-600'
                       }`}
                     >
                       {step.title}
                     </h3>
                     <p
                       className={`leading-relaxed transition-colors duration-300 ${
-                        activeStep === index ? 'text-white/90' : 'text-white/60'
+                        activeStep === index ? 'text-secondary-800' : 'text-secondary-500'
                       }`}
                     >
                       {step.description}
@@ -218,7 +218,7 @@ export default function CallFlow() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="glass-strong rounded-3xl p-8 lg:p-10 relative overflow-hidden">
+            <div className="professional-glass-strong rounded-3xl p-8 lg:p-10 relative overflow-hidden">
               {/* Background Glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary-200/10 to-primary-300/10 rounded-3xl"></div>
 
@@ -233,20 +233,20 @@ export default function CallFlow() {
                     <div className="text-primary-200 text-sm font-semibold mb-1">
                       Step {flowSteps[activeStep].id}
                     </div>
-                    <h3 className="text-2xl font-bold text-white">
+                    <h3 className="text-2xl font-bold text-secondary-900">
                       {flowSteps[activeStep].title}
                     </h3>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-white/90 text-lg mb-8 leading-relaxed">
+                <p className="text-secondary-800 text-lg mb-8 leading-relaxed">
                   {flowSteps[activeStep].description}
                 </p>
 
                 {/* Details List */}
                 <div className="space-y-3">
-                  <h4 className="text-white font-semibold mb-4">Key Elements:</h4>
+                  <h4 className="text-secondary-900 font-semibold mb-4">Key Elements:</h4>
                   {flowSteps[activeStep].details.map((detail, index) => (
                     <motion.div
                       key={index}
@@ -256,7 +256,7 @@ export default function CallFlow() {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
                       <div className="w-2 h-2 bg-primary-200 rounded-full"></div>
-                      <span className="text-white/80">{detail}</span>
+                      <span className="text-secondary-700">{detail}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -275,11 +275,11 @@ export default function CallFlow() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 1.5 }}
         >
-          <div className="glass-strong rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6">
+          <div className="professional-glass-strong rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl lg:text-3xl font-bold text-secondary-900 mb-6">
               Ready to Optimize Your Deal Flow?
             </h3>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+            <p className="text-secondary-700 text-lg mb-8 leading-relaxed">
               Let&apos;s discuss how this proven system can work for your business. Every successful wholesaler 
               needs a reliable pipeline - we&apos;ll show you how to build yours.
             </p>

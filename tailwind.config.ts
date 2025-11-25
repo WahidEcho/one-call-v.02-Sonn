@@ -6,39 +6,33 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  safelist: [
-    // Neon colors for dynamic classes
-    'neon-blue', 'neon-purple', 'neon-pink', 'neon-cyan', 'neon-green', 'neon-red',
-    'text-blue', 'text-purple', 'text-pink', 'text-cyan', 'text-green', 'text-red',
-    'text-neon-blue', 'text-neon-purple', 'text-neon-pink', 'text-neon-cyan', 'text-neon-green', 'text-neon-red',
-    // Border colors
-    'border-neon-blue', 'border-neon-purple', 'border-neon-pink', 'border-neon-cyan', 'border-neon-green', 'border-neon-red',
-  ],
   theme: {
     extend: {
       colors: {
-        // Futuristic Cyberpunk Color Palette
-        cyber: {
-          black: '#0a0a0a',
-          dark: '#111111',
-          darker: '#050505',
-          gray: '#1a1a1a',
-          light: '#2a2a2a',
+        // Professional Blue and White Palette
+        primary: {
+          50: '#eff6ff',
+          100: '#dbeafe', 
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
         },
-        neon: {
-          blue: '#00d4ff',
-          cyan: '#00ffff', 
-          purple: '#8a2be2',
-          pink: '#ff006e',
-          green: '#39ff14',
-          orange: '#ff9500',
-          red: '#ff073a',
-        },
-        electric: {
-          blue: '#0080ff',
-          purple: '#6600ff',
-          teal: '#00ffcc',
-          lime: '#ccff00',
+        secondary: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
         }
       },
       animation: {

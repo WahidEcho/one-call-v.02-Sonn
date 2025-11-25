@@ -86,7 +86,7 @@ function ToolCard({ tool, index }: { tool: typeof tools[0]; index: number }) {
       whileHover={{ scale: 1.05, y: -10 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      <div className="glass-strong rounded-2xl p-6 h-full overflow-hidden relative">
+      <div className="professional-glass-strong rounded-2xl p-6 h-full overflow-hidden relative">
         {/* Hover Glow */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-200/10 to-primary-300/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         
@@ -95,7 +95,7 @@ function ToolCard({ tool, index }: { tool: typeof tools[0]; index: number }) {
           <div className="flex items-center space-x-4 mb-4">
             {tool.logo}
             <div>
-              <h3 className="text-xl font-bold text-white group-hover:text-primary-200 transition-colors">
+              <h3 className="text-xl font-bold text-secondary-900 group-hover:text-primary-600 transition-colors">
                 {tool.name}
               </h3>
               <div className="text-sm text-primary-200 font-medium">
@@ -105,7 +105,7 @@ function ToolCard({ tool, index }: { tool: typeof tools[0]; index: number }) {
           </div>
 
           {/* Description */}
-          <p className="text-white/80 text-sm leading-relaxed mb-4">
+          <p className="text-secondary-700 text-sm leading-relaxed mb-4">
             {tool.description}
           </p>
 
@@ -114,7 +114,7 @@ function ToolCard({ tool, index }: { tool: typeof tools[0]; index: number }) {
             {tool.features.map((feature, featureIndex) => (
               <div key={featureIndex} className="flex items-center space-x-2">
                 <div className="w-1.5 h-1.5 bg-primary-200 rounded-full"></div>
-                <span className="text-white/70 text-xs">{feature}</span>
+                <span className="text-secondary-600 text-xs">{feature}</span>
               </div>
             ))}
           </div>
@@ -158,14 +158,14 @@ export default function Tools() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-6">
             Trusted Tools &{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-100 to-primary-200">
               Partner Companies
             </span>
           </h2>
           <motion.p
-            className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl text-secondary-700 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -207,11 +207,11 @@ export default function Tools() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 1 }}
         >
-          <div className="glass-strong rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6">
+          <div className="professional-glass-strong rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl lg:text-3xl font-bold text-secondary-900 mb-6">
               Seamless Integration with Your Existing Stack
             </h3>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+            <p className="text-secondary-700 text-lg mb-8 leading-relaxed">
               Our VAs are trained to work with all major real estate platforms and tools. 
               We adapt to your existing workflow, so there&apos;s no learning curve or system changes required.
             </p>
@@ -257,8 +257,8 @@ export default function Tools() {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary-200 to-primary-300 rounded-xl flex items-center justify-center text-white mx-auto mb-4">
                     {benefit.icon}
                   </div>
-                  <h4 className="text-white font-semibold mb-2">{benefit.title}</h4>
-                  <p className="text-white/70 text-sm">{benefit.description}</p>
+                  <h4 className="text-secondary-900 font-semibold mb-2">{benefit.title}</h4>
+                  <p className="text-secondary-600 text-sm">{benefit.description}</p>
                 </motion.div>
               ))}
             </div>

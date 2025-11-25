@@ -57,7 +57,7 @@ interface FAQItemProps {
 function FAQItem({ faq, index, isOpen, onToggle, isInView }: FAQItemProps) {
   return (
     <motion.div
-      className="glass rounded-2xl overflow-hidden cursor-pointer group hover:glass-strong transition-all duration-300"
+      className="professional-glass rounded-2xl overflow-hidden cursor-pointer group hover:professional-glass-strong transition-all duration-300"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -65,7 +65,7 @@ function FAQItem({ faq, index, isOpen, onToggle, isInView }: FAQItemProps) {
     >
       {/* Question Header */}
       <div className="p-6 lg:p-8 flex items-center justify-between">
-        <h3 className="text-lg lg:text-xl font-semibold text-white pr-4 flex-1">
+        <h3 className="text-lg lg:text-xl font-semibold text-secondary-900 pr-4 flex-1">
           {faq.question}
         </h3>
         <motion.div
@@ -91,7 +91,7 @@ function FAQItem({ faq, index, isOpen, onToggle, isInView }: FAQItemProps) {
           >
             <div className="px-6 lg:px-8 pb-6 lg:pb-8 border-t border-white/10">
               <motion.p
-                className="text-white/80 leading-relaxed pt-4"
+                className="text-secondary-700 leading-relaxed pt-4"
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
@@ -148,13 +148,13 @@ export default function FAQ() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-6">
             Frequently Asked{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-100 to-primary-200">
               Questions
             </span>
           </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-secondary-700 max-w-3xl mx-auto leading-relaxed">
             Get answers to common questions about our VA services, onboarding process, and what makes us different.
           </p>
         </motion.div>
@@ -180,11 +180,11 @@ export default function FAQ() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <div className="glass-strong rounded-2xl p-8 lg:p-12">
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6">
+          <div className="professional-glass-strong rounded-2xl p-8 lg:p-12">
+            <h3 className="text-2xl lg:text-3xl font-bold text-secondary-900 mb-6">
               Still Have Questions?
             </h3>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+            <p className="text-secondary-700 text-lg mb-8 leading-relaxed">
               Every business is different, and we&apos;re happy to discuss your specific situation. 
               Book a strategy call to get personalized answers and see if we&apos;re a good fit.
             </p>
@@ -251,8 +251,8 @@ export default function FAQ() {
                   <div className="w-10 h-10 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center text-white mx-auto mb-3">
                     {item.icon}
                   </div>
-                  <h4 className="text-white font-semibold mb-1">{item.title}</h4>
-                  <p className="text-white/70 text-sm">{item.detail}</p>
+                  <h4 className="text-secondary-900 font-semibold mb-1">{item.title}</h4>
+                  <p className="text-secondary-600 text-sm">{item.detail}</p>
                 </motion.div>
               ))}
             </div>

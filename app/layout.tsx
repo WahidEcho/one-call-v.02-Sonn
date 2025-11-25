@@ -31,9 +31,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
-      <body className={`${orbitron.variable} ${rajdhani.variable} tech-text`}>
-        {/* Matrix Rain Effect */}
-        <div className="matrix-rain"></div>
+        <body className={`font-sans`}>
+          {/* Professional Background Effect */}
+          <div className="professional-bg"></div>
         
         {/* Holographic Scan Line */}
         <div className="scan-line"></div>
