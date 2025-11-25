@@ -238,7 +238,7 @@ function QuantumFeatureCard({ feature, index, isInView }: QuantumFeatureCardProp
 
 export default function Features() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, threshold: 0.1 })
+  const isInView = useInView(containerRef, { once: true, amount: 0.1 })
 
   return (
     <div ref={containerRef} className="relative py-32 overflow-hidden">

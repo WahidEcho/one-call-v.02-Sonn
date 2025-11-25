@@ -88,7 +88,7 @@ const flowSteps = [
 
 export default function CallFlow() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, threshold: 0.2 })
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 })
   const [activeStep, setActiveStep] = useState(0)
   const [progress, setProgress] = useState(0)
 

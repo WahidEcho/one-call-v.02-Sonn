@@ -17,7 +17,7 @@ const quantumSolutions = [
 
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, threshold: 0.2 })
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 })
 
   return (
     <div ref={containerRef} className="relative py-32 overflow-hidden">

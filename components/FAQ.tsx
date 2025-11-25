@@ -111,7 +111,7 @@ function FAQItem({ faq, index, isOpen, onToggle, isInView }: FAQItemProps) {
 
 export default function FAQ() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, threshold: 0.2 })
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 })
   const [openItems, setOpenItems] = useState<number[]>([1]) // First item open by default
 
   const toggleItem = (id: number) => {

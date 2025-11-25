@@ -21,7 +21,7 @@ function QuantumCounter({ value, color, duration = 2500 }: { value: number; colo
   const [count, setCount] = useState(0)
   const [shouldStart, setShouldStart] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.3 })
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   useEffect(() => {
     if (isInView && !shouldStart) {
@@ -109,7 +109,7 @@ function NeuralDataStream() {
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, threshold: 0.1 })
+  const isInView = useInView(containerRef, { once: true, amount: 0.1 })
 
   return (
     <div ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-16">

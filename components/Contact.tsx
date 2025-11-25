@@ -73,7 +73,7 @@ function CalendlyModal({ isOpen, onClose }: ModalProps) {
 
 export default function Contact() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, threshold: 0.2 })
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 })
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
 
   const openCalendly = () => setIsCalendlyOpen(true)
