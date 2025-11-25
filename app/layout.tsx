@@ -31,7 +31,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
-      <body className={`${orbitron.variable} ${rajdhani.variable} font-tech`}>
+      <body className={`${orbitron.variable} ${rajdhani.variable} tech-text`}>
         {/* Matrix Rain Effect */}
         <div className="matrix-rain"></div>
         
