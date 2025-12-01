@@ -16,7 +16,15 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  /* Single continuous blue gradient background */
+  background: linear-gradient(
+    to bottom,
+    #1077fe 0%,
+    #1c9aff 25%,
+    #49b7ff 50%,
+    #9bd8fe 75%,
+    #c4edff 100%
+  );
   position: relative;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,48 +33,17 @@ body {
   overflow-x: hidden;
 }
 
-/* Professional Background */
+/* Remove old background effects - keeping single gradient only */
 body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.08) 0%, transparent 50%),
-    linear-gradient(135deg, #ffffff 0%, #f1f5f9 50%, #e2e8f0 100%);
-  z-index: -3;
+  display: none;
 }
 
-/* Subtle Grid Overlay */
+/* Remove grid overlay to keep clean gradient */
 body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: -2;
-  opacity: 0.5;
+  display: none;
 }
 
-/* Professional Background Effect */
-.professional-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  overflow: hidden;
-}
+/* Professional Background Effect - Removed, replaced by single gradient */
 
 
 /* Professional Scrollbar */
@@ -163,4 +140,73 @@ body::after {
 ::-moz-selection {
   background: rgba(59, 130, 246, 0.2);
   color: #1e293b;
+}
+
+/* Floating Money Background Styles */
+.floating-money-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.floating-dollar {
+  position: absolute;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  opacity: 0.08;
+  filter: blur(0.5px);
+  text-shadow: 0 0 10px rgba(196, 237, 255, 0.3);
+  pointer-events: none;
+  user-select: none;
+}
+
+.floating-bill {
+  position: absolute;
+  color: #ffffff;
+  opacity: 0.06;
+  filter: blur(0.8px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.bill-svg {
+  width: 32px;
+  height: 16px;
+  color: #c4edff;
+  filter: drop-shadow(0 0 4px rgba(196, 237, 255, 0.2));
+}
+
+.money-particle {
+  position: absolute;
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.04;
+  filter: blur(1px);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Professional background adjustments for better contrast */
+.professional-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 20px rgba(16, 119, 254, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.professional-glass-strong {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 8px 30px rgba(16, 119, 254, 0.15),
+    inset 0 0 30px rgba(255, 255, 255, 0.25);
 }

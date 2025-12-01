@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Orbitron, Rajdhani } from 'next/font/google'
+import FloatingMoneyBackground from '@/components/FloatingMoneyBackground'
 import './globals.css'
 
 const orbitron = Orbitron({ 
@@ -32,14 +33,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
         <body className={`font-sans`}>
-          {/* Professional Background Effect */}
-          <div className="professional-bg"></div>
+          {/* Floating Money Background */}
+          <FloatingMoneyBackground />
         
-        {/* Holographic Scan Line */}
-        <div className="scan-line"></div>
-        
-        {children}
-      </body>
+          {children}
+        </body>
     </html>
   )
 }
