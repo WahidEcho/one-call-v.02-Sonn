@@ -145,12 +145,12 @@ export default function Features() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
         >
-          <div className="text-primary-600 text-sm font-semibold tracking-wide uppercase mb-4">
+          <div className="text-white text-sm font-semibold tracking-wide uppercase mb-4 drop-shadow-md">
             What Makes Us Different
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-secondary-900">Why One Call Away</span><br/>
-            <span className="text-primary-600">Stands Apart</span>
+            <span className="text-white drop-shadow-lg">Why One Call Away</span><br/>
+            <span className="text-white/90 drop-shadow-md">Stands Apart</span>
           </h2>
           <p className="text-secondary-600 text-lg max-w-3xl mx-auto leading-relaxed">
             We're not just another VA company. We're real estate investors who built the VA service we wish existed when we started.

@@ -158,9 +158,9 @@ export default function Tools() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 drop-shadow-lg">
             Trusted Tools &{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-100 to-primary-200">
+            <span className="text-white/90 drop-shadow-md">
               Partner Companies
             </span>
           </h2>

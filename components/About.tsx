@@ -76,13 +76,13 @@ export default function About() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
         >
-          <div className="text-primary-600 text-sm font-semibold tracking-wide uppercase mb-4">
+          <div className="text-white text-sm font-semibold tracking-wide uppercase mb-4 drop-shadow-md">
             Problem & Solution
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-secondary-900">Why Most VA Services</span><br/>
-            <span className="text-red-600">Fail</span><br/>
-            <span className="text-primary-600">vs Our Solution</span>
+            <span className="text-white drop-shadow-lg">Why Most VA Services</span><br/>
+            <span className="text-red-200 drop-shadow-md">Fail</span><br/>
+            <span className="text-white/90 drop-shadow-md">vs Our Solution</span>
           </h2>
         </motion.div>
 

@@ -173,12 +173,12 @@ export default function Hero() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              <div className="text-primary-600 text-sm font-semibold tracking-wide uppercase mb-3">
+              <div className="text-white text-sm font-semibold tracking-wide uppercase mb-3 drop-shadow-md">
                 PROFESSIONAL VA SERVICES
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 <motion.span 
-                  className="block text-secondary-900"
+                  className="block text-white drop-shadow-lg"
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 1, delay: 0.7 }}
@@ -186,7 +186,7 @@ export default function Hero() {
                   Cold Calling & VAs
                 </motion.span>
                 <motion.span 
-                  className="block text-primary-600"
+                  className="block text-white/90 drop-shadow-md"
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 1, delay: 0.9 }}
@@ -194,7 +194,7 @@ export default function Hero() {
                   Built by Wholesalers,
                 </motion.span>
                 <motion.span 
-                  className="block text-secondary-900"
+                  className="block text-white drop-shadow-lg"
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 1, delay: 1.1 }}
@@ -204,7 +204,7 @@ export default function Hero() {
               </h1>
 
               <motion.p 
-                className="text-lg text-secondary-600 mb-8 leading-relaxed"
+                className="text-lg text-white/85 mb-8 leading-relaxed drop-shadow-md"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1, delay: 1.3 }}
@@ -232,7 +232,7 @@ export default function Hero() {
                     transition={{ duration: 0.6, delay: 1.7 + index * 0.1 }}
                   >
                     <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                    <span className="text-secondary-700 font-medium">{feature}</span>
+                    <span className="text-white/90 font-medium drop-shadow-md">{feature}</span>
                   </motion.div>
                 ))}
               </motion.div>

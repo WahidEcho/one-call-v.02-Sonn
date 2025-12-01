@@ -230,12 +230,12 @@ export default function Packages() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
         >
-          <div className="text-primary-600 text-sm font-semibold tracking-wide uppercase mb-4">
+          <div className="text-white text-sm font-semibold tracking-wide uppercase mb-4 drop-shadow-md">
             Choose Your Package
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-secondary-900">VA Packages for</span><br/>
-            <span className="text-primary-600">Serious Real-Estate Teams</span>
+            <span className="text-white drop-shadow-lg">VA Packages for</span><br/>
+            <span className="text-white/90 drop-shadow-md">Serious Real-Estate Teams</span>
           </h2>
           <p className="text-secondary-600 text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
             Select your preferred package. Both options include trained real estate VAs with advanced wholesaling expertise.
