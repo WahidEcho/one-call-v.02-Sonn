@@ -3,36 +3,21 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
-const features = [
-  {
-    icon: '⚠️',
-    title: 'The Problem',
-    subtitle: 'Legacy VA Services',
-    items: [
-      'Untrained assistants who don\'t understand real estate deals',
-      'Poor communication and no accountability systems',
-      'Time wasted on managing instead of closing deals'
-    ],
-    bgColor: 'bg-red-50',
-    borderColor: 'border-red-200',
-    iconBg: 'bg-red-100',
-    textColor: 'text-red-800'
-  },
-  {
-    icon: '⚡',
-    title: 'Our Solution',
-    subtitle: 'Professional VA System',
-    items: [
-      'Real estate-trained VAs who understand the deal process',
-      'Clear communication protocols and daily reporting',
-      'Systems designed for consistent deal flow and scaling'
-    ],
-    bgColor: 'bg-primary-50',
-    borderColor: 'border-primary-200',
-    iconBg: 'bg-primary-100',
-    textColor: 'text-primary-800'
-  }
-]
+const problemData = {
+  title: 'The Problem',
+  subtitle: 'Most VA companies don\'t understand wholesaling. You get:',
+  items: [
+    'Untrained assistants who don\'t know what a good deal looks like',
+    'Weak communication and no accountability',
+    'Time wasted on babysitting instead of closing'
+  ]
+}
+
+const solutionData = {
+  title: 'Our Solution',
+  subtitle: 'One Call Away was created by Nick Kamrada and Loaay Hossam, two active wholesalers who were tired of that. We built a VA agency engineered specifically for wholesalers, real-estate investors, and realtors.',
+  highlight: 'We provide deal-focused partners, not generic VAs—so your callers actually help you move deals, not just make noise.'
+}
 
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -69,98 +54,92 @@ export default function About() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Big Container Box */}
         <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: -50 }}
+          className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-2xl border border-white/50 max-w-7xl mx-auto"
+          initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
         >
-          <div className="text-white text-sm font-semibold tracking-wide uppercase mb-4 drop-shadow-md">
-            Problem & Solution
+          {/* Section Header Inside Big Box */}
+          <div className="text-center mb-12">
+            <div className="text-primary-600 text-sm font-semibold tracking-wide uppercase mb-4">
+              Problem & Solution
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <span className="text-gray-900">Why Most VA Services</span><br/>
+              <span className="text-red-500">Fail</span><br/>
+              <span className="text-gray-700">vs Our Solution</span>
+            </h2>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white drop-shadow-lg">Why Most VA Services</span><br/>
-            <span className="text-red-200 drop-shadow-md">Fail</span><br/>
-            <span className="text-white/90 drop-shadow-md">vs Our Solution</span>
-          </h2>
-        </motion.div>
 
-        {/* Problem vs Solution Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-stretch">
-          {features.map((feature, index) => (
+          {/* Problem vs Solution Grid Inside Big Box */}
+          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+            {/* The Problem - Dark Blue Background */}
             <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index === 0 ? -100 : 100 }}
+              initial={{ opacity: 0, x: -100 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 1, delay: 0.2 + index * 0.2 }}
+              transition={{ duration: 1, delay: 0.2 }}
               className="relative"
             >
-              <div className={`relative professional-glass rounded-3xl p-8 lg:p-10 border-2 ${feature.borderColor} ${feature.bgColor} overflow-hidden h-full`}>
+              <div className="rounded-3xl p-8 lg:p-10 h-full" style={{
+                background: 'linear-gradient(135deg, #1077fe 0%, #49b7ff 100%)'
+              }}>
                 {/* Header */}
-                <div className="flex items-center space-x-4 mb-8">
-                  <div className={`w-16 h-16 ${feature.iconBg} rounded-2xl flex items-center justify-center text-2xl`}>
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h3 className={`text-2xl lg:text-3xl font-bold ${feature.textColor} mb-1`}>
-                      {feature.title}
-                    </h3>
-                    <div className="text-secondary-600 font-medium text-sm">
-                      {feature.subtitle}
-                    </div>
-                  </div>
+                <div className="mb-8">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                    {problemData.title}
+                  </h3>
+                  <p className="text-white/90 text-base leading-relaxed">
+                    {problemData.subtitle}
+                  </p>
                 </div>
 
-                {/* Feature List */}
-                <div className="space-y-6">
-                  {feature.items.map((item, itemIndex) => (
+                {/* Problem List */}
+                <div className="space-y-5">
+                  {problemData.items.map((item, itemIndex) => (
                     <motion.div 
                       key={itemIndex}
-                      className="flex items-start space-x-4"
+                      className="flex items-start space-x-3"
                       initial={{ opacity: 0, x: -30 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.6, delay: 0.4 + index * 0.2 + itemIndex * 0.1 }}
+                      transition={{ duration: 0.6, delay: 0.4 + itemIndex * 0.1 }}
                     >
-                      <div className={`w-6 h-6 border-2 ${feature.borderColor} rounded-full flex items-center justify-center mt-1 flex-shrink-0`}>
-                        <div className={`w-2 h-2 ${index === 0 ? 'bg-red-500' : 'bg-primary-500'} rounded-full`}></div>
-                      </div>
-                      <div className="professional-glass rounded-lg px-4 py-3">
-                        <span className="text-secondary-800 text-sm leading-relaxed">
-                          {item}
-                        </span>
-                      </div>
+                      <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-white/90 text-base leading-relaxed">
+                        {item}
+                      </span>
                     </motion.div>
                   ))}
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
 
-        {/* Call to Action */}
-        <motion.div 
-          className="text-center mt-20"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          <div className="professional-glass-strong rounded-3xl p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl lg:text-4xl font-bold text-secondary-900 mb-6">
-              Ready for a Better VA Experience?
-            </h3>
-            <p className="text-secondary-700 text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
-              Stop wasting time with generic VAs. Get real estate-trained professionals who understand your business from day one.
-            </p>
-            <motion.button
-              className="px-10 py-5 bg-primary-600 text-white rounded-xl font-semibold text-lg hover:bg-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            {/* Our Solution - Light Background */}
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="relative"
             >
-              See Our VA Packages
-            </motion.button>
+              <div className="bg-gray-50 rounded-3xl p-8 lg:p-10 h-full border border-gray-200">
+                {/* Header */}
+                <div className="mb-8">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+                    {solutionData.title}
+                  </h3>
+                  <p className="text-gray-700 text-base leading-relaxed mb-6">
+                    {solutionData.subtitle}
+                  </p>
+                  <p className="text-gray-900 text-base leading-relaxed font-semibold">
+                    {solutionData.highlight}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
+
       </div>
     </div>
   )

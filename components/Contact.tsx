@@ -118,9 +118,9 @@ export default function Contact() {
                 Whether you&apos;re an established investor or just scaling up, our real estate-trained VAs plug directly into your acquisition process—so you can close more deals with less friction.
               </motion.p>
 
-              {/* CTA Buttons */}
+              {/* CTA Button */}
               <motion.div
-                className="flex flex-col sm:flex-row gap-6 justify-center mb-12"
+                className="flex justify-center mb-12"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -132,14 +132,6 @@ export default function Contact() {
                   whileTap={{ scale: 0.98 }}
                 >
                   Book a Free Strategy Call
-                </motion.button>
-
-                <motion.button
-                  className="px-10 py-5 border-2 border-primary-600 text-primary-600 rounded-xl font-semibold text-lg hover:bg-primary-50 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Get Full VA Package Details
                 </motion.button>
               </motion.div>
 

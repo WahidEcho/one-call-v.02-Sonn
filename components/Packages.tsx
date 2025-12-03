@@ -237,7 +237,7 @@ export default function Packages() {
             <span className="text-white drop-shadow-lg">VA Packages for</span><br/>
             <span className="text-white/90 drop-shadow-md">Serious Real-Estate Teams</span>
           </h2>
-          <p className="text-secondary-600 text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
             Select your preferred package. Both options include trained real estate VAs with advanced wholesaling expertise.
           </p>
         </motion.div>
@@ -313,7 +313,7 @@ export default function Packages() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 1 }}
         >
-          <p className="text-secondary-500 text-sm">
+          <p className="text-white text-sm">
             Need multiple callers or a full team? <strong>Contact us for a custom plan.</strong>
           </p>
         </motion.div>

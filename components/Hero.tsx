@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
+import AnimatedLogoSVG from './AnimatedLogoSVG'
 
 const stats = [
   { label: 'CALLS TODAY', value: 2847, suffix: '', color: 'primary' },
@@ -109,6 +110,13 @@ function LiveDashboard() {
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(containerRef, { once: true, amount: 0.1 })
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
     <div ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-16">
@@ -252,9 +260,10 @@ export default function Hero() {
                   Book a Free Strategy Call
                 </motion.button>
                 <motion.button
-                  className="px-8 py-4 border-2 border-primary-600 text-primary-600 rounded-xl font-semibold text-lg hover:bg-primary-50 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  onClick={() => scrollToSection('#packages')}
+                  className="px-8 py-4 border-2 border-primary-600 text-white rounded-xl font-semibold text-lg hover:bg-primary-50/10 transition-all duration-300"
+                  whileHover={{ y: -4 }}
+                  whileTap={{ y: -2 }}
                 >
                   See VA Packages
                 </motion.button>
@@ -269,30 +278,37 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.4 }}
             className="relative"
           >
-            {/* Professional Dashboard */}
-            <div className="professional-glass-strong rounded-2xl p-8 shadow-2xl">
-              <h3 className="text-xl font-bold text-secondary-900 mb-6 text-center">Live Performance Dashboard</h3>
-              
-              {/* Stats Grid */}
-              <div className="grid grid-cols-1 gap-6 mb-8">
-                {stats.map((stat, index) => (
-                  <motion.div 
-                    key={index}
-                    className="text-center"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
-                  >
-                    <AnimatedCounter value={stat.value} color={stat.color} />
-                    <div className="text-sm font-medium text-secondary-600 mt-1">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </div>
+            {/* Combined Logo and Dashboard Container */}
+            <div className="space-y-6">
+              {/* Animated Logo */}
+              <motion.div
+                className="flex justify-center"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 1, delay: 0.6 }}
+              >
+                <AnimatedLogoSVG size={320} />
+              </motion.div>
 
-              {/* Live Activity Feed */}
-              <div className="space-y-4">
-                <h4 className="text-sm font-semibold text-secondary-700 uppercase tracking-wide">Recent Activity</h4>
-                <LiveDashboard />
+              {/* Compact Professional Dashboard */}
+              <div className="professional-glass-strong rounded-2xl p-6 shadow-2xl">
+                <h3 className="text-lg font-bold text-secondary-900 mb-4 text-center">Live Performance Dashboard</h3>
+                
+                {/* Stats Grid - Compact */}
+                <div className="grid grid-cols-1 gap-4">
+                  {stats.map((stat, index) => (
+                    <motion.div 
+                      key={index}
+                      className="text-center"
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
+                    >
+                      <AnimatedCounter value={stat.value} color={stat.color} />
+                      <div className="text-xs font-medium text-secondary-600 mt-1">{stat.label}</div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>

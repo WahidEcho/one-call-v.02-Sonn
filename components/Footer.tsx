@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const footerLinks = [
   {
@@ -61,20 +62,20 @@ const socialLinks = [
     )
   },
   {
-    name: 'YouTube',
-    href: '#',
+    name: 'Email',
+    href: 'mailto:Info@OneCallAway.com',
     icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
       </svg>
     )
   },
   {
-    name: 'Facebook',
-    href: '#',
+    name: 'WhatsApp',
+    href: 'https://wa.me/15551234567',
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
       </svg>
     )
   }
@@ -116,20 +117,48 @@ export default function Footer() {
                 viewport={{ once: true }}
               >
                 {/* Logo */}
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary-200 to-primary-300 rounded-xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                      <polyline points="9,22 9,12 15,12 15,22"/>
-                    </svg>
+                <motion.button
+                  onClick={scrollToTop}
+                  className="flex items-center space-x-3 mb-6 cursor-pointer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                    <Image
+                      src="/logo.png"
+                      alt="One Call Away Logo"
+                      width={36}
+                      height={36}
+                      className="object-contain"
+                    />
                   </div>
-                  <span className="text-white font-bold text-xl">One Call Away</span>
-                </div>
+                  <span className="text-secondary-900 font-bold text-xl">One Call Away</span>
+                </motion.button>
 
-                <p className="text-primary-50/90 mb-8 leading-relaxed">
+                <p className="text-secondary-800 mb-6 leading-relaxed">
                   Premium real-estate virtual assistant and cold-calling agency founded by active wholesalers. 
                   Built by deal makers, for deal makers.
                 </p>
+
+                {/* Contact Information */}
+                <div className="mb-8 space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <svg className="w-4 h-4 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <a href="mailto:Info@OneCallAway.com" className="text-secondary-800 hover:text-primary-600 transition-colors">
+                      Info@OneCallAway.com
+                    </a>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <svg className="w-4 h-4 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span className="text-secondary-800">
+                      +1 (555) 123-4567
+                    </span>
+                  </div>
+                </div>
 
                 {/* Social Links */}
                 <div className="flex space-x-4">
@@ -137,7 +166,7 @@ export default function Footer() {
                     <motion.a
                       key={social.name}
                       href={social.href}
-                      className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-xl flex items-center justify-center text-primary-50 hover:text-white transition-all duration-200"
+                      className="w-10 h-10 bg-secondary-200/50 hover:bg-secondary-300 rounded-xl flex items-center justify-center text-secondary-700 hover:text-secondary-900 transition-all duration-200"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       aria-label={social.name}
@@ -158,7 +187,7 @@ export default function Footer() {
                   transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="text-white font-semibold mb-6">
+                  <h3 className="text-secondary-900 font-semibold mb-6">
                     {section.title}
                   </h3>
                   <ul className="space-y-3">
@@ -166,7 +195,7 @@ export default function Footer() {
                       <li key={link.name}>
                         <motion.button
                           onClick={() => scrollToSection(link.href)}
-                          className="text-primary-50/80 hover:text-white transition-colors duration-200 text-left"
+                          className="text-secondary-700 hover:text-secondary-900 transition-colors duration-200 text-left"
                           whileHover={{ x: 5 }}
                         >
                           {link.name}
@@ -179,7 +208,7 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Newsletter Section */}
+          {/* Community Section */}
           <motion.div
             className="mt-16 pt-8 border-t border-white/20"
             initial={{ opacity: 0, y: 20 }}
@@ -188,24 +217,18 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <div className="max-w-md mx-auto lg:mx-0">
-              <h3 className="text-white font-semibold mb-4">Stay Updated</h3>
-              <p className="text-primary-50/80 mb-6">
-                Get wholesaling tips, VA best practices, and industry insights delivered to your inbox.
+              <h3 className="text-secondary-900 font-semibold mb-4">Join Our Community</h3>
+              <p className="text-secondary-700 mb-6">
+                Connect with like-minded real estate professionals, share insights, and grow your network in our exclusive community.
               </p>
-              <div className="flex space-x-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary-200 transition-all"
-                />
-                <motion.button
-                  className="bg-gradient-to-r from-primary-200 to-primary-300 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Subscribe
-                </motion.button>
-              </div>
+              <motion.a
+                href="https://community.onecallaway.com"
+                className="inline-block bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Join Now
+              </motion.a>
             </div>
           </motion.div>
         </div>
@@ -214,26 +237,28 @@ export default function Footer() {
         <div className="border-t border-white/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
-              <div className="text-primary-50/80 text-sm">
+              <div className="text-secondary-700 text-sm">
                 © {currentYear} One Call Away. All rights reserved.
               </div>
               
               <div className="flex items-center space-x-6 text-sm">
-                <motion.button
-                  className="text-primary-50/80 hover:text-white transition-colors"
+                <motion.a
+                  href="/privacy-policy"
+                  className="text-secondary-700 hover:text-secondary-900 transition-colors"
                   whileHover={{ y: -2 }}
                 >
                   Privacy Policy
-                </motion.button>
-                <motion.button
-                  className="text-primary-50/80 hover:text-white transition-colors"
+                </motion.a>
+                <motion.a
+                  href="/terms-of-service"
+                  className="text-secondary-700 hover:text-secondary-900 transition-colors"
                   whileHover={{ y: -2 }}
                 >
                   Terms of Service
-                </motion.button>
+                </motion.a>
                 <motion.button
                   onClick={scrollToTop}
-                  className="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-primary-50 hover:text-white transition-all duration-200"
+                  className="w-8 h-8 bg-secondary-200/50 hover:bg-secondary-300 rounded-full flex items-center justify-center text-secondary-700 hover:text-secondary-900 transition-all duration-200"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Scroll to top"

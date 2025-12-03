@@ -35,46 +35,48 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="relative min-h-screen">
+    <main className="z-content always-visible">
       <Navbar />
       
-      <section id="hero">
+      <section id="hero" className="z-content always-visible">
         <Hero />
       </section>
       
-      <section id="about">
+      <section id="about" className="z-content always-visible">
         <About />
       </section>
       
-      <section id="features">
+      <section id="features" className="z-content always-visible">
         <Features />
       </section>
       
-      <section id="call-flow">
+      <section id="call-flow" className="z-content always-visible">
         <CallFlow />
       </section>
       
-      <section id="packages">
+      <section id="packages" className="z-content always-visible">
         <Packages />
       </section>
       
-      <section id="tools">
+      <section id="tools" className="z-content always-visible">
         <Tools />
       </section>
       
-      <section id="founders">
+      <section id="founders" className="z-content always-visible">
         <Founders />
       </section>
       
-      <section id="faq">
+      <section id="faq" className="z-content always-visible">
         <FAQ />
       </section>
       
-      <section id="contact">
+      <section id="contact" className="z-content always-visible">
         <Contact />
       </section>
       
-      <Footer />
+      <div className="z-content always-visible">
+        <Footer />
+      </div>
     </main>
   )
 }

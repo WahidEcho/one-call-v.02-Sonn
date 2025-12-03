@@ -16,9 +16,9 @@ html {
 
 body {
   min-height: 100vh;
-  /* Single continuous blue gradient background */
+  /* Single diagonal gradient background from top-left to bottom-right */
   background: linear-gradient(
-    to bottom,
+    135deg,
     #1077fe 0%,
     #1c9aff 25%,
     #49b7ff 50%,
@@ -33,14 +33,25 @@ body {
   overflow-x: hidden;
 }
 
-/* Remove old background effects - keeping single gradient only */
+/* Subtle white overlay layer for texture and depth */
 body::before {
-  display: none;
-}
-
-/* Remove grid overlay to keep clean gradient */
-body::after {
-  display: none;
+  content: '';
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 30%),
+    radial-gradient(circle at 25% 60%, rgba(255, 255, 255, 0.05) 0%, transparent 35%),
+    radial-gradient(circle at 75% 80%, rgba(255, 255, 255, 0.07) 0%, transparent 28%),
+    radial-gradient(circle at 45% 15%, rgba(255, 255, 255, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 25%),
+    radial-gradient(circle at 10% 85%, rgba(255, 255, 255, 0.05) 0%, transparent 32%),
+    radial-gradient(circle at 65% 45%, rgba(255, 255, 255, 0.03) 0%, transparent 45%);
+  pointer-events: none !important;
+  z-index: -100 !important;
 }
 
 /* Professional Background Effect - Removed, replaced by single gradient */
@@ -66,25 +77,59 @@ body::after {
   background: linear-gradient(45deg, #2563eb, #1d4ed8);
 }
 
+/* ===================================================================================
+   CRITICAL Z-INDEX SYSTEM - PREVENTS CONTENT VISIBILITY BUGS
+   ===================================================================================
+   
+   STRICT LAYERING HIERARCHY (from bottom to top):
+   -1000: Deep background elements
+   -100:  Background gradients and patterns  
+   -50:   Background decorations
+   -10:   Body pseudo-elements (::before, ::after)
+   -5:    Floating background animations (FloatingMoneyBackground)
+   0:     Default layer (DO NOT USE FOR CONTENT)
+   1:     Glass effects and cards (.professional-glass)
+   10:    Interactive elements (hover states, buttons)
+   50:    Dropdowns and modals
+   100:   MAIN CONTENT SECTIONS (ALWAYS VISIBLE - all <section> elements)
+   500:   Navigation bars (Navbar component)
+   1000:  Overlays and tooltips
+   9999:  Emergency fixes only (use .force-visible class)
+   
+   MANDATORY RULES TO PREVENT VISIBILITY BUGS:
+   1. ALL main content MUST use z-index 100 or higher
+   2. ALL background elements MUST use negative z-index
+   3. NEVER use z-index 0 for content - reserved for default layer
+   4. When adding components, ALWAYS assign z-index from this system
+   5. Use utility classes (.z-content, .z-navigation, etc.) when possible
+   6. If content disappears, use .force-visible class and fix root cause
+   7. Test visibility after ANY z-index changes
+   
+   =================================================================================== */
+
 /* Professional Utility Classes */
 @layer utilities {
   /* Professional Glassmorphism */
   .professional-glass {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 
-      0 4px 20px rgba(59, 130, 246, 0.1),
-      inset 0 0 20px rgba(255, 255, 255, 0.1);
+      0 4px 20px rgba(16, 119, 254, 0.1),
+      inset 0 0 20px rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
   }
   
   .professional-glass-strong {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(25px);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: 
-      0 8px 30px rgba(59, 130, 246, 0.15),
-      inset 0 0 30px rgba(255, 255, 255, 0.2);
+      0 8px 30px rgba(16, 119, 254, 0.15),
+      inset 0 0 30px rgba(255, 255, 255, 0.25);
+    position: relative;
+    z-index: 1;
   }
 
 
@@ -129,6 +174,75 @@ body::after {
   .professional-shadow-lg {
     box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
   }
+
+  /* CRITICAL Z-INDEX UTILITY CLASSES - Use these to maintain proper layering */
+  .z-deep-background {
+    z-index: -1000 !important;
+    position: fixed !important;
+  }
+  
+  .z-background {
+    z-index: -100 !important;
+    position: fixed !important;
+  }
+  
+  .z-decoration {
+    z-index: -50 !important;
+    position: absolute !important;
+  }
+  
+  .z-overlay {
+    z-index: -10 !important;
+    position: fixed !important;
+  }
+  
+  .z-floating-bg {
+    z-index: -5 !important;
+    position: fixed !important;
+  }
+  
+  .z-content {
+    z-index: 100 !important;
+    position: relative !important;
+  }
+  
+  .z-navigation {
+    z-index: 500 !important;
+    position: fixed !important;
+  }
+  
+  .z-modal {
+    z-index: 1000 !important;
+    position: fixed !important;
+  }
+  
+  /* EMERGENCY VISIBILITY CLASSES */
+  .force-visible {
+    position: relative !important;
+    z-index: 9999 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  .always-visible {
+    z-index: 100 !important;
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* CONTENT PROTECTION - Ensures main content is always visible */
+  main {
+    position: relative !important;
+    z-index: 100 !important;
+    min-height: 100vh !important;
+  }
+  
+  section {
+    position: relative !important;
+    z-index: 100 !important;
+  }
 }
 
 /* Selection styling */
@@ -144,13 +258,13 @@ body::after {
 
 /* Floating Money Background Styles */
 .floating-money-background {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  z-index: -1;
+  pointer-events: none !important;
+  z-index: -1000 !important;
   overflow: hidden;
 }
 
@@ -192,21 +306,3 @@ body::after {
   user-select: none;
 }
 
-/* Professional background adjustments for better contrast */
-.professional-glass {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 4px 20px rgba(16, 119, 254, 0.1),
-    inset 0 0 20px rgba(255, 255, 255, 0.2);
-}
-
-.professional-glass-strong {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 
-    0 8px 30px rgba(16, 119, 254, 0.15),
-    inset 0 0 30px rgba(255, 255, 255, 0.25);
-}

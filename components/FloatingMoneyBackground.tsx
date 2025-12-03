@@ -28,7 +28,7 @@ export default function FloatingMoneyBackground() {
   ]
 
   return (
-    <div className="floating-money-background">
+    <div className="floating-money-background z-deep-background">
       {/* Dollar Signs */}
       {dollarSigns.map((dollar) => (
         <motion.div
@@ -135,3 +135,4 @@ export default function FloatingMoneyBackground() {
     </div>
   )
 }
+

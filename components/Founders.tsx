@@ -3,38 +3,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
-const timeline = [
-  {
-    year: '2021',
-    title: 'First Wholesale Deals',
-    description: 'Nick closed his first wholesale deals and began developing systematic approaches to cold calling and lead generation.',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    )
-  },
-  {
-    year: '2022',
-    title: '27 Properties & Community',
-    description: 'Founded 27 Properties, LLC and created the One Call Away Community, a high-level network for serious wholesalers.',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    )
-  },
-  {
-    year: '2023+',
-    title: 'One Call Away VA Agency',
-    description: 'Launched the VA agency to solve the industry-wide problem of undertrained virtual assistants who don\'t understand wholesaling.',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    )
-  }
-]
 
 const founders = [
   {
@@ -42,7 +10,7 @@ const founders = [
     role: 'Co-Founder & Deal Expert',
     location: 'Tampa, Florida',
     image: '👨‍💼', // Placeholder - replace with actual image
-    bio: 'Nick is an accomplished real-estate wholesaler, educator, and entrepreneur based in Tampa, Florida. He founded 27 Properties, LLC and created the One Call Away Community, a high-level network and coaching hub for wholesalers. Since his first deal in 2021, Nick has built one of the top wholesaling operations in the Tampa Bay area, generating millions in assignment fees and focusing on off-market, direct-to-seller acquisitions. He brings real, on-the-ground acquisitions and team-building experience to One Call Away—so your VA systems are designed by someone who lives the deal life every day.',
+    bio: 'Nick is a seasoned real estate wholesaler and entrepreneur in Tampa, Florida. He founded 27 Properties, LLC and the One Call Away Community—a network and coaching hub for wholesalers. Since his first deal in 2021, he has built one of Tampa Bay’s top operations, generating millions in assignment fees through off-market acquisitions. Nick brings hands-on deal and team-building expertise to ensure VA systems are designed by someone living the business daily.',
     specialties: ['Wholesaling Strategy', 'Deal Analysis', 'Market Expertise', 'Team Building'],
     achievements: [
       'Millions in assignment fees generated',
@@ -56,7 +24,7 @@ const founders = [
     role: 'Co-Founder & Operations Expert',
     location: 'Operations & Systems',
     image: '👨‍💻', // Placeholder - replace with actual image
-    bio: 'Loaay specializes in building and scaling operations, managing VA teams, and turning chaotic workflows into repeatable systems. He is responsible for the structure behind One Call Away: hiring, training, processes, and the technology that keeps everything running smooth and consistent. While Nick brings the deal expertise, Loaay ensures that expertise gets packaged into scalable, reliable operations that work every time.',
+    bio: 'Loaay specializes in scaling operations, managing VA teams, and turning chaos into streamlined systems. He oversees hiring, training, processes, and technology at One Call Away, ensuring smooth, consistent operations. While Nick provides deal expertise, Loaay transforms it into scalable systems that work every time.',
     specialties: ['Systems Design', 'VA Management', 'Process Optimization', 'Technology Integration'],
     achievements: [
       'Designed scalable VA operations',
@@ -67,34 +35,6 @@ const founders = [
   }
 ]
 
-function TimelineItem({ item, index, isInView }: { item: typeof timeline[0]; index: number; isInView: boolean }) {
-  return (
-    <motion.div
-      className="relative flex items-center space-x-6 group"
-      initial={{ opacity: 0, x: -50 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
-    >
-      {/* Timeline Node */}
-      <motion.div
-        className="relative z-10 w-12 h-12 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full flex items-center justify-center text-white shadow-lg group-hover:shadow-xl transition-shadow duration-300"
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      >
-        {item.icon}
-      </motion.div>
-
-      {/* Content */}
-      <div className="flex-1 professional-glass rounded-2xl p-6 group-hover:professional-glass-strong transition-all duration-300">
-        <div className="flex items-center space-x-4 mb-3">
-          <span className="text-2xl font-bold text-primary-200">{item.year}</span>
-          <h3 className="text-xl font-bold text-secondary-900">{item.title}</h3>
-        </div>
-        <p className="text-secondary-700 leading-relaxed">{item.description}</p>
-      </div>
-    </motion.div>
-  )
-}
 
 function FounderCard({ founder, index, isInView }: { founder: typeof founders[0]; index: number; isInView: boolean }) {
   return (
@@ -215,46 +155,11 @@ export default function Founders() {
               Founders
             </span>
           </h2>
-          <p className="text-xl text-secondary-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
             Built by active wholesalers who understand what it takes to close deals and scale operations.
           </p>
         </motion.div>
 
-        {/* Timeline Section */}
-        <div className="mb-20 lg:mb-24">
-          <motion.h3
-            className="text-2xl lg:text-3xl font-bold text-secondary-900 text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Our Journey
-          </motion.h3>
-          
-          <div className="max-w-4xl mx-auto">
-            {/* Timeline Line */}
-            <div className="relative">
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-white/20"></div>
-              <motion.div
-                className="absolute left-6 top-0 w-0.5 bg-gradient-to-b from-primary-200 to-primary-300"
-                initial={{ height: '0%' }}
-                animate={isInView ? { height: '100%' } : {}}
-                transition={{ duration: 2, delay: 0.5 }}
-              />
-              
-              <div className="space-y-8">
-                {timeline.map((item, index) => (
-                  <TimelineItem
-                    key={index}
-                    item={item}
-                    index={index}
-                    isInView={isInView}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Founders Cards */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
@@ -276,6 +181,9 @@ export default function Founders() {
           transition={{ duration: 0.6, delay: 2 }}
         >
           <div className="professional-glass-strong rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl lg:text-3xl font-bold text-secondary-900 text-center mb-6">
+              Message of the Co-Founders
+            </h3>
             <p className="text-secondary-800 text-lg lg:text-xl leading-relaxed mb-8">
               Nick brings deal and community expertise. Loaay brings systems and operations excellence. 
               Together, they built One Call Away to give investors a VA company that finally understands 

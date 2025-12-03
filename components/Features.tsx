@@ -7,31 +7,31 @@ const features = [
   {
     title: 'Built by Wholesalers',
     description: 'Founded and operated by active high-volume wholesalers who understand assignment fees, motivated sellers, and off-market deals.',
-    icon: '🏗️',
     color: 'primary-600'
   },
   {
     title: 'Highly Trained Real-Estate VAs',
     description: 'All VAs are trained on wholesaling from A to Z: lead qualification, seller motivation, acquisition handoff, and CRM discipline.',
-    icon: '🎓',
     color: 'blue-600'
   },
   {
     title: 'Elite Communication & Accountability',
     description: 'Daily KPI reporting, clear expectations, and transparent performance—no guessing, no chasing.',
-    icon: '📊',
     color: 'green-600'
   },
   {
     title: 'Systems That Scale',
     description: 'Processes, tools, and workflows tuned for consistent deal flow and repeatable operations.',
-    icon: '⚙️',
     color: 'purple-600'
   },
   {
     title: 'Tier-A Investor Focus',
     description: 'We partner with serious investors and teams who want to dominate their markets through proven systems.',
-    icon: '💎',
+    color: 'amber-600'
+  },
+  {
+    title: 'Dedicated Account Managers',
+    description: 'Every client has a dedicated account manager to ensure smooth communication and support.',
     color: 'amber-600'
   }
 ]
@@ -47,7 +47,7 @@ function FeatureCard({ feature, index, isInView }: FeatureCardProps) {
 
   return (
     <motion.div
-      className="relative group h-full"
+      className="relative group h-full w-full max-w-sm mx-auto"
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ 
@@ -67,17 +67,6 @@ function FeatureCard({ feature, index, isInView }: FeatureCardProps) {
 
         {/* Content */}
         <div className="relative z-10">
-          {/* Icon */}
-          <motion.div 
-            className={`w-16 h-16 bg-${feature.color} bg-opacity-10 rounded-xl flex items-center justify-center text-3xl mb-6`}
-            animate={{ 
-              scale: isHovered ? 1.1 : 1,
-              rotate: isHovered ? 5 : 0 
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            {feature.icon}
-          </motion.div>
 
           {/* Title */}
           <h3 className="text-xl font-bold text-secondary-900 mb-4 leading-tight">
@@ -152,13 +141,13 @@ export default function Features() {
             <span className="text-white drop-shadow-lg">Why One Call Away</span><br/>
             <span className="text-white/90 drop-shadow-md">Stands Apart</span>
           </h2>
-          <p className="text-secondary-600 text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white text-lg max-w-3xl mx-auto leading-relaxed">
             We're not just another VA company. We're real estate investors who built the VA service we wish existed when we started.
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
@@ -169,38 +158,6 @@ export default function Features() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          <div className="professional-glass-strong rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-secondary-900 mb-4">
-              Ready to Experience the Difference?
-            </h3>
-            <p className="text-secondary-600 mb-6">
-              See how our trained VAs can transform your real estate business operations.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                className="px-8 py-3 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Book a Strategy Call
-              </motion.button>
-              <motion.button
-                className="px-8 py-3 border-2 border-primary-600 text-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition-all duration-300"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                View Packages
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </div>
   )
